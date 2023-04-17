@@ -55,7 +55,19 @@ class BinarySearchTree {
   }
 
   find(data) {
-    throw new NotImplementedError('Not implemented');
+    return findWithin(this.rootProp, data)
+
+    function findWithin(node, data) {
+      if(!node) {
+        return null;
+      }
+
+      if (node.data === data) {
+        return node;
+      }
+
+      return data < node.data ? findWithin(node.left, data) : findWithin(node.right, data)
+    }
   }
 
   remove(data) {
